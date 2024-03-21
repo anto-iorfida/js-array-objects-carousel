@@ -86,7 +86,32 @@ const images = [
       activeItem = 0;
     }
   
- 
+    // aggiungiere la classe "active" all'immagine e miniatura successiva
+    imagesContainer.children[activeItem].classList.add('active');
+    thumbnailsContainer.children[activeItem].classList.add('active');
+  });
+  
+  // creare il clic sul pulsante "previous"
+  const previousArrow = document.querySelector('.arrow.previous');
+  previousArrow.addEventListener('click', function () {
+    // rimuovere la classe "active" dall'immagine e miniatura corrente
+    document.querySelector('.image.active').classList.remove('active');
+    // document.querySelector('.thumbnail.active').classList.remove('active');
+  
+    
+    // calcolare l'indice dell'immagine precedente
+    // decrementa activeItem di 1
+    activeItem--;
+    // se activeItem diventa negativo, riportalo alla fine dell'array per tornare all'ultima immagine
+    if (activeItem < 0) {
+      activeItem = images.length - 1;
+    }
+  
+    // aggiungiere la classe "active" all'immagine e miniatura precedente
+    imagesContainer.children[activeItem].classList.add('active');
+    thumbnailsContainer.children[activeItem].classList.add('active');
+  });
+
 
 //   FUNZIONI
   // funzione per creare un elemento "image"
