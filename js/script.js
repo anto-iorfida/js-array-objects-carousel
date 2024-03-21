@@ -69,6 +69,23 @@ const images = [
     }
   });
   
+  // creare il clic sul pulsante "next"
+  const nextArrow = document.querySelector('.arrow.next');
+  nextArrow.addEventListener('click', function () {
+    // rimuovere la classe "active" dall'immagine e miniatura corrente
+    document.querySelector('.image.active').classList.remove('active');
+    // document.querySelector('.thumbnail.active').classList.remove('active');
+  
+    // carosello infinito 
+    // calcolare l'indice dell'immagine successiva
+    // Incrementare activeItem di 1
+    activeItem++;
+    // se activeItem è maggiore o uguale alla lunghezza dell'array images,
+    // riportalo a 0 per tornare alla prima immagine
+    if (activeItem >= images.length) {
+      activeItem = 0;
+    }
+  
  
 
 //   FUNZIONI
